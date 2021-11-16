@@ -28,6 +28,7 @@ public class Teams {
     public String getName(){
         return team1;
         
+        
     }
     public int getWins(){
         return wins;
