@@ -4,45 +4,35 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SportStatistics {
-
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
-        System.out.println("Filename:");
+        System.out.println("File: ");
         String file = scan.nextLine();
-        System.out.println("Team:");
-        String userIn = scan.nextLine();
-        
-        ArrayList<Teams> teamList = readTeamsFromFile(file);
-
-        System.out.println("the list");
-        for (Teams games : teamList){
-            System.out.println(games);
+        ArrayList<Matchs> games = readMatchsFromFile(file);
+        System.out.println("Match Listing:");
+        for (Matchs match : games){
+            System.out.println(match);
         }
-
     }
-
-    public static ArrayList<Teams> readTeamsFromFile(String file) {
-        //ArrayList that stores team info
-        ArrayList<Teams> teams = new ArrayList<>();
-        //read the file line by line
-
-        try (Scanner readFile = new Scanner(Paths.get(file))) {
-            while (readFile.hasNextLine()) {
-                String line = readFile.nextLine();
-                String[] split = line.split(",");
-
-                String name1 = split[0];
-                String name2 = split[1];
-                int scoreT1 = Integer.valueOf(split[2]);
-                int scoreT2 = Integer.valueOf(split[3]);
-                teams.add(new Teams(name1, name2, scoreT1, scoreT2));
+    public static ArrayList<Matchs> readMatchsFromFile(String file){
+        ArrayList<Matchs> games = new ArrayList<>();
+        try (Scanner readMatchsFromFile = new Scanner(Paths.get(file))){
+            while (readMatchsFromFile.hasNextLine()){
+            String line = readMatchsFromFile.nextLine();
+            String[] split = line.split(";");
+            String homeTeam = split[0];
+            String awayTeam = split[1];
+            int homeTeamScore = Integer.valueOf(split[2]);
+            int awayTeamScore = Integer.valueOf(split[3]);
+            
+            games.add(new Matchs(homeTeam, awayTeam, homeTeamScore, awayTeamScore));
             }
-
-        } catch (Exception e) {
+            
+        } catch (Exception e){
+            
             System.out.println("Error: " + e.getMessage());
         }
-
-        return teams;
+        
+        return games;
     }
-
 }
