@@ -5,24 +5,40 @@
  */
 
 /**
- *
  * @author Chad
  */
-public class Matchs {
-    private String homeTeam;
-    private String awayTeam;
-    private int homeTeamScore;
-    private int awayTeamScore;
-    public Matchs(String homeTeam, String awayTeam, int homeTeamScore, int awayTeamScore){
-        this.homeTeam = homeTeam;
-        this.awayTeam = awayTeam;
-        this.homeTeamScore = homeTeamScore;
-        this.awayTeamScore = awayTeamScore;
+public class Matchs{
+    private String name;
+    private int wins;
+    private int losses;
+    
+    public Matchs(String name) {
+        this.name = name;
+        this.wins = 0;
+        this.losses = 0;
     }
-    public String getTeamNames(){
-        return homeTeam + "," + awayTeam;
+    
+    public String getName() {
+        return name;
     }
-    public String toString(){
-        return "Match: " + this.homeTeam + " VS " + this.awayTeam + " SCORE: " + this.homeTeamScore + " / " + this.awayTeamScore;
+    
+    public int getWins() {
+        return wins;
+    }
+    
+    public int getLosses() {
+        return losses;
+    }
+    
+    public void addWin() {
+        wins++;
+    }
+    
+    public void addLoss() {
+        losses++;
+    }
+    
+    public int getGames() {
+        return (wins + losses);
     }
 }
