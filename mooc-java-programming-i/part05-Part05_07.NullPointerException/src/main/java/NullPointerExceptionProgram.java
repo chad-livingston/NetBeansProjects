@@ -21,5 +21,12 @@ public class NullPointerExceptionProgram {
             index++;
         }
 
+        Test test = new Test();
+        test = null;
+        System.out.println(test);
+        
+        test.addCount();
+        System.out.println(test);
+
     }
 }
