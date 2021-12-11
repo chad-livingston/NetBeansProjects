@@ -1,21 +1,20 @@
 
-public class HealthStation {
+public class HealthStation{
 
-    public int weight;
-
+    //private int weight;
+    private int visitors = 0;
     public int weigh(Person person) {
         // return the weight of the person passed as the parameter+
-        if (weight != 0) {
-            return weight;
-        } else {
-            this.weight = person.getWeight();
-            return weight;
-        }
-
+        int weight = person.getWeight();
+        this.visitors += 1;
+        return weight;
     }
 
     public void feed(Person person) {
-        weight = person.getWeight() + 1;
+        person.setWeight(person.getWeight() + 1);
+    }
+    public int weighings(){
+        return this.visitors;
     }
 
 }
