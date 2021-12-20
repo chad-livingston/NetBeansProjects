@@ -15,6 +15,18 @@ public class SimpleDate {
     public String toString() {
         return this.day + "." + this.month + "." + this.year;
     }
+    
+    public void advance(){
+        if (this.day == 30){
+            this.day = 0;
+            this.month++;
+        }
+        if (this.month == 12){
+            this.month = 0;
+            this.year++;
+        }
+        this.day++;
+    }
 
     public boolean before(SimpleDate compared) {
         if (this.year < compared.year) {
