@@ -18,22 +18,31 @@ public class SimpleCollection {
     public ArrayList<String> getElements() {
         return this.elements;
     }
-    public String toString(){
-        
-        if (elements.isEmpty()){
-            return "The collection alphabet is empty.";
+
+
+    public String toString() {
+        String printOutput = "The collection " + this.name;
+        if (elements.isEmpty()) {
+            return printOutput + " is empty.";
+        }
+        String thelist = "";
+        int s = this.elements.size();
+        int i = 0;
+        for (String element : elements) {
+            if (i < s - 1){
+                thelist += element+"\n";
+            } else {
+                thelist += element;
+            }
+            i++;
+        }
+        if (s == 1) {
+            return printOutput + " has " + s + " element:" + "\n"
+                    + thelist;
         } else {
-            System.out.println("The collection has " + elements.size() + " elements:");
+            return printOutput + " has " + s + " elements:" + "\n"
+                    + thelist;
         }
-        String elementsInCollection = "";
-        
-        
-        for (String element : elements){
-            
-            elementsInCollection = elementsInCollection + element + "\n";
-        }
-        
-        return elementsInCollection;
     }
-    
+
 }

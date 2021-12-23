@@ -12,16 +12,34 @@ public class Main {
         j.add("magneto");
         System.out.println(j);
         
-        System.out.println();
+       // System.out.println();
         
         j.add("mystique");
         System.out.println(j);
         
-        System.out.println();
+       // System.out.println();
         
         j.add("phoenix");
         System.out.println(j);
         
         
+        
+       /* When the code was: 
+        SimpleCollection c = new SimpleCollection("collection");
+        c.add("element");
+        System.out.println(c);
+        
+        Expected output: 
+        The collection collection has 1 element: 
+        element  
+                
+        Currently output is: 
+        The collection collection has 1 element: 
+        element 
+        
+        expected:<...s 1 element: element[]> but was:<...s 1 element: element[ ]>*/
+        
     }
+    
+    
 }
