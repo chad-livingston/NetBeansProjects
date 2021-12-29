@@ -1,9 +1,8 @@
-
 import java.util.HashMap;
 
 public class SimpleDictionary {
 
-    private HashMap<String, String> translations;
+    private final HashMap<String, String> translations;
 
     public SimpleDictionary() {
         this.translations = new HashMap<>();
@@ -15,5 +14,14 @@ public class SimpleDictionary {
 
     public void add(String word, String translation) {
         this.translations.put(word, translation);
+    }
+    public boolean containsValue(String valueToSearch){
+        if (translations.isEmpty()){
+            return false;
+        }
+        if (translations.containsKey(valueToSearch)){
+            return true;
+        }
+        return false;
     }
 }
