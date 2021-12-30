@@ -1,24 +1,32 @@
+
 import java.util.ArrayList;
 
 public class Hold {
-    private final int maxWeight;
-    private final ArrayList<Suitcase> suitcases = new ArrayList<>();
 
+    private int maxWeight;
+    private final ArrayList<Suitcase> suitcases = new ArrayList<>();
 
     public Hold(int maxWeight) {
         this.maxWeight = maxWeight;
     }
 
     public void addSuitcase(Suitcase suitcase) {
-        int totalWeight = 0;
-        for (Suitcase suitcase1 : this.suitcases) {
-            totalWeight += suitcase1.totalWeight();
-        }
-        if (suitcase.totalWeight() < maxWeight) {
-            if (suitcase.totalWeight() <= (maxWeight - totalWeight)) {
+
+        if (totalWeightOfSuitcases() < maxWeight) {
+            if (suitcase.totalWeight() <= (maxWeight - totalWeightOfSuitcases())) {
                 suitcases.add(suitcase);
             }
         }
+
+    }
+
+    public int totalWeightOfSuitcases() {
+        int totalWeight = 0;
+        for (Suitcase suitcases : this.suitcases) {
+            totalWeight += suitcases.totalWeight();
+        }
+
+        return totalWeight;
     }
 
     public void printItems() {
